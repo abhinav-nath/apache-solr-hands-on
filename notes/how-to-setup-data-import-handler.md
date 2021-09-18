@@ -1,4 +1,4 @@
-### Steps to setup Solr Data Import Handler (DIH) for PostgreSQL
+## Steps to setup Solr Data Import Handler (DIH) for PostgreSQL
 
 [Config files](./dih_config_files "Config Files") used in this example
 
