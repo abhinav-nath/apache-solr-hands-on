@@ -1,6 +1,8 @@
 ### Steps to setup Solr Data Import Handler (DIH) for PostgreSQL
 
-1. Create a table (sample) in PostgreSQL:
+[Config files](./dih_config_files "Config Files") used in this example
+
+1. Create a (sample) table in PostgreSQL:
 
    ```sql
    CREATE TABLE products
@@ -14,8 +16,14 @@
    PRIMARY KEY (id));
    ```
 
+2. Add a sample record:
 
-2. Create a new core:
+   ```sql
+   INSERT INTO products ("id", "name", "category", "brand", "description", "color", "date_added") VALUES
+   (1, 'Macbook Pro', 'ELECTRONICS', 'Apple', 'Apple Macbook Pro 2019 model', 'RED', '2021-09-17');
+   ```
+
+3. Create a new core:
 
    ```
    $ ./solr create -c productscatalog
@@ -26,7 +34,7 @@
    ![Solr Admin Dashboard](./images/solr_admin_new_core.png "New Core in Solr Admin Dashboard")
 
 
-3. Go to the `conf` directory in the newly created core:
+4. Go to the `conf` directory in the newly created core:
 
    ```
    cd $SOLR_HOME/server/solr/productscatalog/conf
@@ -39,7 +47,7 @@
    - schema.xml
 
 
-4. Download JDBC driver for PostgreSQL from [here](https://jdbc.postgresql.org/download.html "PostgreSQL JDBC driver")
+5. Download JDBC driver for PostgreSQL from [here](https://jdbc.postgresql.org/download.html "PostgreSQL JDBC driver")
    
    Place the jar file at:
 
@@ -53,7 +61,7 @@
    -rw-r--r--@ 1 abhinavnath  staff  1005522 Sep 17 22:08 postgresql-42.2.23.jar
    ```
 
-5. `solrconfig.xml` changes:
+6. `solrconfig.xml` changes:
 
    - Add below `lib` paths:
      ```xml
@@ -72,7 +80,7 @@
      ```
 
 
-6. Create `data-config.xml` file:
+7. Create `data-config.xml` file:
 
    ```xml
    <dataConfig>
@@ -92,7 +100,7 @@
    ```
 
 
-7. Rename `managed-schema` file to `schema.xml`
+8. Rename `managed-schema` file to `schema.xml`
 
    ```shell
    $ mv managed-schema schema.xml
@@ -111,15 +119,24 @@
    ```
 
 
-8. Start Solr
+9. Start Solr
 
    ```shell
    $ ./solr start
    ```
 
 
-9. Open Solr Admin Dashboard and go to your core
+10. Use `DataImport` option to index the data
 
+   - Go to Solr Admin Dashboard
    - Go to `DataImport` option and choose the `full-import` command from the drop-down
    - Hit `Execute`
-   - <img src="images/dataimport.png" alt="DataImport Execute" style="height: 460px; width:326px;"/>
+     <img src="images/dataimport.png" alt="DataImport Execute" style="height: 460px; width:326px;"/>
+   
+   - DataImport should successfully index one document
+     ![Indexing completed](./images/dataimport_indexing_completed.png "Indexing completed")
+
+
+11. Query the newly indexed document using the `Request-Handler`
+
+    ![Request Handler](./images/request_handler_query.png "Request Handler")
