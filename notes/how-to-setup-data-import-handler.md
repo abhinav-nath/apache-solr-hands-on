@@ -48,7 +48,7 @@
 
 
 5. Download JDBC driver for PostgreSQL from [here](https://jdbc.postgresql.org/download.html "PostgreSQL JDBC driver")
-   
+
    Place the jar file at:
 
    ```shell
@@ -65,8 +65,14 @@
 
    - Add below `lib` paths:
      ```xml
-     <lib dir="${solr.install.dir:../../../..}/contrib/dataimporthandler/lib" regex=".*\.jar" />
-     <lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-dataimporthandler-.*\.jar" />
+     <config>
+       ...
+       ...
+       <lib dir="${solr.install.dir:../../../..}/contrib/dataimporthandler/lib" regex=".*\.jar" />
+       <lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-dataimporthandler-.*\.jar" />
+       ...
+       ...
+     </config>
      ```
 
    - Add a new `requestHandler`:
@@ -109,13 +115,19 @@
    Add the fields that we mapped in `data-config.xml`:
 
    ```xml
-   <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
-   <field name="name" type="string" indexed="true" stored="true" />
-   <field name="category" type="string" indexed="true" stored="true" />
-   <field name="brand" type="string" indexed="true" stored="true" />
-   <field name="description" type="string" indexed="true" stored="true" />
-   <field name="color" type="string" indexed="true" stored="true" />
-   <field name="dateAdded" type="string" indexed="true" stored="true" />
+   <schema name="default-config" version="1.6">
+     ...
+     ...
+     <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+     <field name="name" type="string" indexed="true" stored="true" />
+     <field name="category" type="string" indexed="true" stored="true" />
+     <field name="brand" type="string" indexed="true" stored="true" />
+     <field name="description" type="string" indexed="true" stored="true" />
+     <field name="color" type="string" indexed="true" stored="true" />
+     <field name="dateAdded" type="string" indexed="true" stored="true" />
+     ...
+     ...
+   </schema>
    ```
 
 
@@ -131,8 +143,9 @@
    - Go to Solr Admin Dashboard
    - Go to `DataImport` option and choose the `full-import` command from the drop-down
    - Hit `Execute`
+
      <img src="images/dataimport.png" alt="DataImport Execute" style="height: 460px; width:326px;"/>
-   
+
    - DataImport should successfully index one document
      ![Indexing completed](./images/dataimport_indexing_completed.png "Indexing completed")
 
