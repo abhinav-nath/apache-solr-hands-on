@@ -140,14 +140,15 @@
 
 10. Use `DataImport` option to index the data
 
-   - Go to Solr Admin Dashboard
-   - Go to `DataImport` option and choose the `full-import` command from the drop-down
-   - Hit `Execute`
+    - Go to Solr Admin Dashboard
+    - Go to `DataImport` option and choose the `full-import` command from the drop-down
+    - Hit `Execute`
 
-     <img src="images/dataimport.png" alt="DataImport Execute" style="height: 460px; width:326px;"/>
+      <img src="images/dataimport.png" alt="DataImport Execute" style="height: 460px; width:326px;"/>
 
-   - DataImport should successfully index one document
-     ![Indexing completed](./images/dataimport_indexing_completed.png "Indexing completed")
+    - DataImport should successfully index one document
+
+      ![Indexing completed](./images/dataimport_indexing_completed.png "Indexing completed")
 
 
 11. Query the newly indexed document using the `Request-Handler`
