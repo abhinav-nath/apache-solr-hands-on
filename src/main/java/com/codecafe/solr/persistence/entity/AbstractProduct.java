@@ -19,6 +19,6 @@ public class AbstractProduct {
 
     private String brand;
     private String description;
-    private LocalDate dateAdded = LocalDate.now();
+    private final LocalDate dateAdded = LocalDate.now();
 
 }
