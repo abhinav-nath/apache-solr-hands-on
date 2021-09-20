@@ -39,8 +39,16 @@ public class ProductService {
         return toProductDocuments(productSolrRepository.findAll());
     }
 
-    public List<ProductDocument> fetchAllByProductName(String name) {
+    public List<ProductDocument> fetchAllProductsByName(String name) {
         return productSolrRepository.findByName(name);
+    }
+
+    public List<ProductDocument> fetchAllProductsByDescription(String description) {
+        return productSolrRepository.findByDescription(description);
+    }
+
+    public List<ProductDocument> fetchAllProductsBy(String searchTerm) {
+        return productSolrRepository.findBy(searchTerm);
     }
 
     private List<ProductDocument> toProductDocuments(Iterable<ProductDocument> products) {

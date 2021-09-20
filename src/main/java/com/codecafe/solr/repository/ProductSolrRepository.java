@@ -11,4 +11,10 @@ public interface ProductSolrRepository extends SolrCrudRepository<ProductDocumen
     @Query("name:*?0*")
     List<ProductDocument> findByName(String name);
 
+    @Query("description:*?0*")
+    List<ProductDocument> findByDescription(String description);
+
+    @Query("name:*?0* OR category:*?0* OR description:*?0* OR brand:*?0*")
+    List<ProductDocument> findBy(String searchTerm);
+
 }

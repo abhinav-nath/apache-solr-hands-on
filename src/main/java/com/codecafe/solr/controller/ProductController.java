@@ -41,9 +41,21 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
-    @GetMapping("/products")
-    ResponseEntity<List<ProductDocument>> findProductsByName(@RequestParam String name) {
-        List<ProductDocument> products = productService.fetchAllByProductName(name);
+    @GetMapping("/products/name/{name}")
+    ResponseEntity<List<ProductDocument>> findProductsByName(@PathVariable String name) {
+        List<ProductDocument> products = productService.fetchAllProductsByName(name);
+        return ResponseEntity.ok(products);
+    }
+
+    @GetMapping("/products/description/{description}")
+    ResponseEntity<List<ProductDocument>> findProductsByDescription(@PathVariable String description) {
+        List<ProductDocument> products = productService.fetchAllProductsByDescription(description);
+        return ResponseEntity.ok(products);
+    }
+
+    @GetMapping("/products/search/{searchTerm}")
+    ResponseEntity<List<ProductDocument>> findProductsBy(@PathVariable String searchTerm) {
+        List<ProductDocument> products = productService.fetchAllProductsBy(searchTerm);
         return ResponseEntity.ok(products);
     }
 
