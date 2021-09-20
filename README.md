@@ -14,7 +14,7 @@
    $ ./solr start
    ```
 
-   Solr Admin link for local:
+   Solr Admin Dashboard link for local:
 
    http://localhost:8983/solr/#/
 

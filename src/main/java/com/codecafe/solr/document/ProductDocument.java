@@ -6,8 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.apache.solr.client.solrj.beans.Field;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.solr.core.mapping.Indexed;
 import org.springframework.data.solr.core.mapping.SolrDocument;
 
 @Getter
@@ -18,24 +18,25 @@ import org.springframework.data.solr.core.mapping.SolrDocument;
 public class ProductDocument {
 
     @Id
+    @Indexed
     private Long id;
 
-    @Field
+    @Indexed
     private String name;
 
-    @Field
+    @Indexed
     private ProductCategory category;
 
-    @Field
+    @Indexed
     private String brand;
 
-    @Field
+    @Indexed
     private String description;
 
-    @Field
+    @Indexed
     private ProductColor color;
 
-    @Field
+    @Indexed
     private String dateAdded;
 
 }
