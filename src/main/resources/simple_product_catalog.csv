@@ -1,0 +1,15 @@
+name,category,brand,description,color,price,date_added
+Macbook Pro 2019,LAPTOPS,Apple,Apple Macbook Pro 2019 model,SILVER,2200.00,2019-04-18
+Macbook Pro 2021,LAPTOPS,Apple,Apple Macbook Pro 2021 model with M1 Chip,GREY,1300.00,2021-08-22
+Macbook Air 2021,LAPTOPS,Apple,Apple Macbook Air 2021 model with M1 chip,SILVER,969.00,2021-08-22
+Macbook Air 2020,LAPTOPS,Apple,Apple Macbook Air 2020 with Intel Chip,GREY,900.00,2020-04-21
+Apple Pencil 2nd Gen,TABLET_ACCESSORIES,Apple,Apple Pencil 2nd Generation,WHITE,130.00,2018-04-15
+Magsafe Charger,MOBILE_ACCESSORIES,Apple,Apple Magsafe Charger,WHITE,80.00,2020-09-20
+MX Master 2,LAPTOP_ACCESSORIES,Logitech,Logitech MX Master 2 Mouse,BLACK,95.00,2019-03-27
+MX Master 3,LAPTOP_ACCESSORIES,Logitech,Logitech MX Master 3 Mouse,BLACK,100.00,2021-05-23
+WH-1000XM4,HEADPHONES,Sony,Sony WH-1000XM4 Wireless Headphones,BLACK,348.00,2021-01-08
+WH-1000XM3,HEADPHONES,Sony,Sony WH-1000XM3 Wireless Headphones,BLACK,348.00,2018-06-12
+Playstation 3,GAMING_CONSOLES,Sony,Sony Playstation 3,BLACK,600.00,2017-02-10
+Playstation 4,GAMING_CONSOLES,Sony,Sony Playstation 4,BLACK,620.00,2019-08-26
+Playstation 5 Digital Edition,GAMING_CONSOLES,Sony,Sony Playstation 5 Digital Edition,BLACK,800.00,2021-09-20
+Playstation 5,GAMING_CONSOLES,Sony,Sony Playstation 5,BLACK,950.00,2021-09-19

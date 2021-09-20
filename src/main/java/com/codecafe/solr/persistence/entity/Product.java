@@ -3,10 +3,11 @@ package com.codecafe.solr.persistence.entity;
 import com.codecafe.solr.document.ProductDocument;
 import com.codecafe.solr.model.ProductCategory;
 import com.codecafe.solr.model.ProductColor;
+import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvDate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -14,7 +15,6 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "products")
 public class Product {
@@ -23,18 +23,34 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @CsvBindByName
     private String name;
 
     @Enumerated(EnumType.STRING)
+    @CsvBindByName
     private ProductCategory category;
 
+    @CsvBindByName
     private String brand;
+
+    @CsvBindByName
     private String description;
 
     @Enumerated(EnumType.STRING)
+    @CsvBindByName
     private ProductColor color;
 
-    private final LocalDate dateAdded = LocalDate.now();
+    @CsvBindByName
+    private Double price;
+
+    @CsvDate(value = "yyyy-MM-dd")
+    @CsvBindByName(column = "date_added")
+    private LocalDate dateAdded;
+
+    public Product() {
+        if(dateAdded == null)
+            dateAdded = LocalDate.now();
+    }
 
     public ProductDocument toProductDocument() {
         return ProductDocument.builder()

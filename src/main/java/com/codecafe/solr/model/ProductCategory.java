@@ -1,9 +1,12 @@
 package com.codecafe.solr.model;
 
 public enum ProductCategory {
-    APPARELS,
-    ELECTRONICS,
-    TOYS,
-    STATIONERY,
-    FURNITURE
+    LAPTOPS,
+    LAPTOP_ACCESSORIES,
+    MOBILES,
+    MOBILE_ACCESSORIES,
+    TABLETS,
+    TABLET_ACCESSORIES,
+    HEADPHONES,
+    GAMING_CONSOLES,
 }
