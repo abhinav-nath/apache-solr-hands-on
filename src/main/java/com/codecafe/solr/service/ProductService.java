@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ProductService {
@@ -27,6 +29,17 @@ public class ProductService {
         ProductDocument productDocument = savedProduct.toProductDocument();
         productSolrRepository.save(productDocument);
         return savedProduct;
+    }
+
+    public List<Product> fetchAllFromDB() {
+        return productRepository.findAll();
+    }
+
+    public List<ProductDocument> fetchAllFromSolr() {
+        List<ProductDocument> products = new ArrayList<>();
+        Iterable<ProductDocument> productDocuments = productSolrRepository.findAll();
+        productDocuments.forEach(products::add);
+        return products;
     }
 
 }

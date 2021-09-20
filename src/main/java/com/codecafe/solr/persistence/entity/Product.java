@@ -48,8 +48,8 @@ public class Product {
     private LocalDate dateAdded;
 
     public Product() {
-        if(dateAdded == null)
-            dateAdded = LocalDate.now();
+        if (dateAdded == null)
+            LocalDate.now();
     }
 
     public ProductDocument toProductDocument() {
