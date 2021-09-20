@@ -4,13 +4,13 @@ import com.codecafe.solr.document.ProductDocument;
 import com.codecafe.solr.model.ProductCategory;
 import com.codecafe.solr.model.ProductColor;
 import com.opencsv.bean.CsvBindByName;
-import com.opencsv.bean.CsvDate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Getter
@@ -43,13 +43,12 @@ public class Product {
     @CsvBindByName
     private Double price;
 
-    @CsvDate(value = "yyyy-MM-dd")
     @CsvBindByName(column = "date_added")
-    private LocalDate dateAdded;
+    private String dateAdded;
 
     public Product() {
         if (dateAdded == null)
-            LocalDate.now();
+            dateAdded = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
     }
 
     public ProductDocument toProductDocument() {

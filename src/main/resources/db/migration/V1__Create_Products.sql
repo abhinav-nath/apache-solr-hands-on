@@ -5,5 +5,5 @@ CREATE TABLE products
  brand TEXT NOT NULL,
  description TEXT NOT NULL,
  color TEXT,
- date_added date NOT NULL,
+ date_added TEXT NOT NULL,
 PRIMARY KEY (id));

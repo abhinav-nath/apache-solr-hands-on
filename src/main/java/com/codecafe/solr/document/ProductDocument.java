@@ -10,8 +10,6 @@ import org.apache.solr.client.solrj.beans.Field;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.solr.core.mapping.SolrDocument;
 
-import java.time.LocalDate;
-
 @Getter
 @Builder
 @NoArgsConstructor
@@ -38,6 +36,6 @@ public class ProductDocument {
     private ProductColor color;
 
     @Field
-    private LocalDate dateAdded;
+    private String dateAdded;
 
 }
