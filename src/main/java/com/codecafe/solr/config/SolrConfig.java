@@ -17,8 +17,8 @@ public class SolrConfig {
     }
 
     @Bean
-    public SolrTemplate solrTemplate(SolrClient client) {
-        return new SolrTemplate(client);
+    public SolrTemplate solrTemplate() {
+        return new SolrTemplate(solrClient());
     }
 
 }

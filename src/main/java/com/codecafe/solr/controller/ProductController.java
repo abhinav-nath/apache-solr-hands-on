@@ -4,6 +4,8 @@ import com.codecafe.solr.document.ProductDocument;
 import com.codecafe.solr.persistence.entity.Product;
 import com.codecafe.solr.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.solr.core.query.result.FacetPage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -56,6 +58,12 @@ public class ProductController {
     @GetMapping("/products/search/{searchTerm}")
     ResponseEntity<List<ProductDocument>> findProductsBy(@PathVariable String searchTerm) {
         List<ProductDocument> products = productService.fetchAllProductsBy(searchTerm);
+        return ResponseEntity.ok(products);
+    }
+
+    @GetMapping("/products/facetedsearch/{productName}")
+    ResponseEntity<FacetPage<ProductDocument>> findProductsBy(@PathVariable String productName, @RequestParam String facet) {
+        FacetPage<ProductDocument> products = productService.fetchAllProductsByNameAndFacet(productName, facet, PageRequest.of(0, 20));
         return ResponseEntity.ok(products);
     }
 

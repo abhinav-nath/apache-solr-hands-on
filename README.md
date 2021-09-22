@@ -32,4 +32,5 @@
 
 
 6. Some pre-configured data gets loaded in DB as well as in Solr after the start-up
+
    `simple_product_catalog.csv` contains the pre-configured data
