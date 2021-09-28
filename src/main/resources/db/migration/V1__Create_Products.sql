@@ -6,4 +6,5 @@ CREATE TABLE products
  description TEXT NOT NULL,
  color TEXT,
  date_added TEXT NOT NULL,
+ in_stock BOOLEAN NOT NULL,
 PRIMARY KEY (id));

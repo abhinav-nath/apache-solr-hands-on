@@ -39,4 +39,7 @@ public class ProductDocument {
     @Indexed
     private String dateAdded;
 
+    @Indexed
+    private boolean inStock;
+
 }

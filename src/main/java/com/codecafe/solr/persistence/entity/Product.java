@@ -46,6 +46,9 @@ public class Product {
     @CsvBindByName(column = "date_added")
     private String dateAdded;
 
+    @CsvBindByName(column = "in_stock")
+    private boolean inStock;
+
     public Product() {
         if (dateAdded == null)
             dateAdded = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
@@ -60,6 +63,7 @@ public class Product {
                 .description(description)
                 .color(color)
                 .dateAdded(dateAdded)
+                .inStock(inStock)
                 .build();
     }
 
