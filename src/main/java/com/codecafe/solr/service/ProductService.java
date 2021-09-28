@@ -64,7 +64,14 @@ public class ProductService {
     }
 
     public FacetPage<ProductDocument> fetchAllProductsByNameAndFacet(String productName, String facet, PageRequest pageRequest) {
-        FacetQuery query = new SimpleFacetQuery(new Criteria("name").is(productName))
+        FacetQuery query = new SimpleFacetQuery(new Criteria("name").contains(productName))
+                .setFacetOptions(new FacetOptions(facet));
+        query.setPageRequest(pageRequest);
+        return solrTemplate.queryForFacetPage("productscatalog", query, ProductDocument.class);
+    }
+
+    public FacetPage<ProductDocument> fetchAllProductsByFacet(String facet, PageRequest pageRequest) {
+        FacetQuery query = new SimpleFacetQuery(new Criteria("name").isNotNull())
                 .setFacetOptions(new FacetOptions(facet));
         query.setPageRequest(pageRequest);
         return solrTemplate.queryForFacetPage("productscatalog", query, ProductDocument.class);

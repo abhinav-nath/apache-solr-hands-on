@@ -67,4 +67,10 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
+    @GetMapping("/products")
+    ResponseEntity<FacetPage<ProductDocument>> getProductFacets(@RequestParam String facet) {
+        FacetPage<ProductDocument> products = productService.fetchAllProductsByFacet(facet, PageRequest.of(0, 20));
+        return ResponseEntity.ok(products);
+    }
+
 }
