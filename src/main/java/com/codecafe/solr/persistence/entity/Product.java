@@ -62,6 +62,7 @@ public class Product {
                 .brand(brand)
                 .description(description)
                 .color(color)
+                .price(price)
                 .dateAdded(dateAdded)
                 .inStock(inStock)
                 .build();

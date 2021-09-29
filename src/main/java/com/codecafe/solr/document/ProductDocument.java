@@ -37,6 +37,9 @@ public class ProductDocument {
     private ProductColor color;
 
     @Indexed
+    private Double price;
+
+    @Indexed
     private String dateAdded;
 
     @Indexed
