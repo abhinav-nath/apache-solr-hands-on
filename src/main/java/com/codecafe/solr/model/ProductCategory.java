@@ -8,5 +8,5 @@ public enum ProductCategory {
     TABLETS,
     TABLET_ACCESSORIES,
     HEADPHONES,
-    GAMING_CONSOLES,
+    GAMING_CONSOLES
 }
