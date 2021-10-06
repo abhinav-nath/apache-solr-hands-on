@@ -2,6 +2,7 @@ package com.codecafe.solr.service;
 
 import com.codecafe.solr.document.ProductDocument;
 import com.codecafe.solr.model.CategoryView;
+import com.codecafe.solr.model.ProductCategory;
 import com.codecafe.solr.persistence.repository.ProductRepository;
 import com.codecafe.solr.repository.ProductSolrRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,7 @@ public class ProductSearchService {
         return productSolrRepository.findBy(searchTerm);
     }
 
-    public List<ProductDocument> fetchAllProductsByCategory(String category) {
+    public List<ProductDocument> fetchAllProductsByCategory(ProductCategory category) {
         return productSolrRepository.findByCategory(category);
     }
 

@@ -17,10 +17,10 @@ import java.util.stream.Collectors;
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    @Autowired
     private final ProductRepository productRepository;
     private final ProductSolrRepository productSolrRepository;
 
+    @Autowired
     public DataLoader(ProductRepository productRepository, ProductSolrRepository productSolrRepository) {
         this.productRepository = productRepository;
         this.productSolrRepository = productSolrRepository;
@@ -46,7 +46,7 @@ public class DataLoader implements CommandLineRunner {
     }
 
     @Transactional
-    private void performRepositoryOperations(List<Product> products) {
+    void performRepositoryOperations(List<Product> products) {
         productSolrRepository.deleteAll();
         productRepository.saveAll(products);
         productSolrRepository.saveAll(products.stream().map(Product::toProductDocument).collect(Collectors.toList()));

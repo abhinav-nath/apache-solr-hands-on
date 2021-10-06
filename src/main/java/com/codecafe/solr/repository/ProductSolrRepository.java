@@ -1,6 +1,7 @@
 package com.codecafe.solr.repository;
 
 import com.codecafe.solr.document.ProductDocument;
+import com.codecafe.solr.model.ProductCategory;
 import org.springframework.data.solr.repository.Query;
 import org.springframework.data.solr.repository.SolrCrudRepository;
 
@@ -15,7 +16,7 @@ public interface ProductSolrRepository extends SolrCrudRepository<ProductDocumen
     List<ProductDocument> findByDescription(String description);
 
     @Query("category:*?0*")
-    List<ProductDocument> findByCategory(String category);
+    List<ProductDocument> findByCategory(ProductCategory category);
 
     @Query("name:*?0* OR category:*?0* OR description:*?0* OR brand:*?0*")
     List<ProductDocument> findBy(String searchTerm);

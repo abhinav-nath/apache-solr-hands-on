@@ -2,6 +2,7 @@ package com.codecafe.solr.controller;
 
 import com.codecafe.solr.document.ProductDocument;
 import com.codecafe.solr.model.CategoryView;
+import com.codecafe.solr.model.ProductCategory;
 import com.codecafe.solr.service.ProductSearchService;
 import org.apache.solr.common.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,6 @@ import org.springframework.data.solr.core.query.result.FacetPage;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -36,7 +36,7 @@ public class ProductSearchController {
         if (StringUtils.isEmpty(category))
             products = productSearchService.fetchAllFromSolr();
         else
-            products = productSearchService.fetchAllProductsByCategory(category);
+            products = productSearchService.fetchAllProductsByCategory(ProductCategory.valueOf(category.toUpperCase()));
 
         return ResponseEntity.ok(products);
     }
