@@ -25,7 +25,11 @@
    ```
 
 
-4. This app uses in-memory database (H2) so need to set up any DB
+4. This app uses MySQL DB. Command to run MySQL Docker container in local:
+
+   ```shell
+   $ docker run --name mysqldb -e MYSQL_ROOT_PASSWORD=password -v $HOME/mysql-data:/var/lib/mysql -p 3306:3306 -d mysql
+   ```
 
 
 5. Run the Spring Boot application
