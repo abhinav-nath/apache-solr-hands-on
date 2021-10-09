@@ -127,7 +127,9 @@
     <field name="brand" type="string" indexed="true" stored="true" />
     <field name="description" type="string" indexed="true" stored="true" />
     <field name="color" type="string" indexed="true" stored="true" />
+    <field name="price" type="pdoubles" indexed="true" stored="true" />
     <field name="dateAdded" type="string" indexed="true" stored="true" />
+    <field name="inStock" type="booleans" indexed="true" stored="true" />
 
     <!-- This can be enabled, in case the client does not know what fields may be searched. It isn't enabled by default
          because it's very expensive to index everything twice. -->

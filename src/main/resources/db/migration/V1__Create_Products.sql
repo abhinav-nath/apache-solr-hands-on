@@ -5,6 +5,7 @@ CREATE TABLE products
  brand TEXT NOT NULL,
  description TEXT NOT NULL,
  color TEXT,
+ price DOUBLE NOT NULL,
  date_added TEXT NOT NULL,
  in_stock BOOLEAN NOT NULL,
 PRIMARY KEY (id));
